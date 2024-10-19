@@ -1,16 +1,14 @@
 # keep_notes
 
-A new Flutter project.
+keep_notes is a flutter appliction to achieve following
 
-## Getting Started
+- Add a note
+- Add and track to do tasks
+- Save links, passwords for future reference
 
-This project is a starting point for a Flutter application.
+and much more
 
-A few resources to get you started if this is your first Flutter project:
+## Project details
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Flutter : v3.24.3
+supported platforms : Windows, android, IOS, mac, web
