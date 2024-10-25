@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep_notes/pages/add_note.dart';
 import 'router.dart';
 import 'pages/index.dart';
 
@@ -32,6 +33,11 @@ class MyApp extends StatelessWidget {
       path: '/show-notes',
       builder: (context, state) => ShowNotes(),
     ),
+     GoRoute(
+      name: 'add note',
+      path: '/add-note',
+      builder: (context, state) => AddNote(),
+    )
   ],
 ),
     );

@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
                     child: "New note",
                     onClick: () {
                       print('add note');
-                      context.push('/show-notes');
+                      context.push('/add-note');
                     },
                   ),
                   const SizedBox(
