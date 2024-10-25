@@ -18,8 +18,15 @@ class _AddNoteState extends State<AddNote> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
            Text('Please add note'),
-           TextFormField(
-            initialValue: 'Add note',
+           SizedBox(
+            height: MediaQuery.sizeOf(context).height*0.8,
+            width: MediaQuery.sizeOf(context).width*0.4,
+             child: TextFormField(
+              autofocus: true,
+              expands: true,
+              initialValue: "Add text",
+              maxLines: null,
+             ),
            )
           ],
         ),
