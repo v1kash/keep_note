@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(8),
             height: MediaQuery.of(context).size.height / 2,
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.of(context).size.width/2,
             child: Column(
               children: [
                 Expanded(
@@ -64,13 +64,16 @@ class HomePage extends StatelessWidget {
                    return ListView.builder(
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
-                        return ListTile(
-                          title: Text(dataList[index]),
-                          trailing: IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {
-                              context.read<DataCubit>().delteItem(index);
-                            },
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 1),
+                          child: LongTileButton(
+                          child : Text(dataList[index]),
+                          suffix:  IconButton(
+                              icon: Icon(Icons.delete),
+                              onPressed: () {
+                                context.read<DataCubit>().delteItem(index);
+                              },
+                            ),
                           ),
                         );
                       },
