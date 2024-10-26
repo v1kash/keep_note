@@ -59,9 +59,24 @@ class HomePage extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             child: Column(
               children: [
-                BlocBuilder<DataCubit, String>(builder: (context,data){
-                return Text(data.isEmpty ? 'No data yet' : data); 
-                })
+                Expanded(
+                  child: BlocBuilder<DataCubit, List<String>>(builder: (context,dataList){
+                   return ListView.builder(
+                      itemCount: dataList.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(dataList[index]),
+                          trailing: IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              context.read<DataCubit>().delteItem(index);
+                            },
+                          ),
+                        );
+                      },
+                    );
+                  }),
+                )
               ],
             ),
           ),
@@ -70,3 +85,4 @@ class HomePage extends StatelessWidget {
     );
   }
 }
+

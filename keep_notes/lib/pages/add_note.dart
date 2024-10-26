@@ -40,7 +40,7 @@ class _AddNoteState extends State<AddNote> {
             ),
             ElevatedButton(
               onPressed: () {
-                context.read<DataCubit>().updateData(_controller.text);
+                context.read<DataCubit>().addItem(_controller.text);
                 Navigator.pop(context); // Go back to the Second Page
               },
               child: Text('Submit'),
@@ -51,3 +51,4 @@ class _AddNoteState extends State<AddNote> {
     );
   }
 }
+
