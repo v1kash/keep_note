@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:keep_notes/pages/add_note.dart';
 import 'router.dart';
 import 'pages/index.dart';
+import 'cubit/note_cubit.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+     BlocProvider(
+      create: (context) => DataCubit(),
+    child : const MyApp(),
+    )
+    );
 }
 
 class MyApp extends StatelessWidget {

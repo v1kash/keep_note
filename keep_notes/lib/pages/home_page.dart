@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:keep_notes/cubit/note_cubit.dart';
 import '../components/index.dart';
 import '../utils/get_small_viewport.dart';
 
@@ -55,7 +57,13 @@ class HomePage extends StatelessWidget {
             padding: EdgeInsets.all(8),
             height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
-            child: Text("data"),
+            child: Column(
+              children: [
+                BlocBuilder<DataCubit, String>(builder: (context,data){
+                return Text(data.isEmpty ? 'No data yet' : data); 
+                })
+              ],
+            ),
           ),
         ],
       ),
