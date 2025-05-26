@@ -16,8 +16,8 @@ class HomePage extends StatelessWidget {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height / 2,
-            color: const Color.fromARGB(255, 211, 237, 249),
+            height: MediaQuery.of(context).size.height / 3,
+            color: const Color.fromARGB(255, 77, 150, 183),
             child: Padding(
               padding: EdgeInsets.symmetric(
                   horizontal: isSmallPort(context) ? 8 : 32, vertical: 8),
@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                     width: 32,
                   ),
                   ButtonCard(
-                    child: "New jounal",
+                    child: "Save Password",
                     onClick: () {
                       print('add note');
                     },
@@ -55,24 +55,35 @@ class HomePage extends StatelessWidget {
           ),
           Container(
             padding: EdgeInsets.all(8),
-            height: MediaQuery.of(context).size.height / 2,
-            width: MediaQuery.of(context).size.width/2,
+            height: MediaQuery.of(context).size.height / 2 / 3,
+            width: isSmallPort(context)
+                ? MediaQuery.of(context).size.width
+                : MediaQuery.of(context).size.width / 2,
             child: Column(
               children: [
                 Expanded(
-                  child: BlocBuilder<DataCubit, List<String>>(builder: (context,dataList){
-                   return ListView.builder(
+                  child: BlocBuilder<DataCubit, List<String>>(
+                      builder: (context, dataList) {
+                    return ListView.builder(
                       itemCount: dataList.length,
                       itemBuilder: (context, index) {
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 1),
                           child: LongTileButton(
-                          child : Text(dataList[index]),
-                          suffix:  IconButton(
+                            suffix: IconButton(
                               icon: Icon(Icons.delete),
                               onPressed: () {
                                 context.read<DataCubit>().delteItem(index);
                               },
+                            ),
+                            onClick: () {
+                              context.read<DataCubit>().getItem(index);
+                              context.push('/edit-note/$index');
+                            },
+                            child: Text(
+                              dataList[index],
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
                             ),
                           ),
                         );
@@ -88,4 +99,3 @@ class HomePage extends StatelessWidget {
     );
   }
 }
-

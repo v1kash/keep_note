@@ -41,6 +41,8 @@ class LongTileButton extends StatelessWidget {
             ],
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween
+            ,
             children: [
               prefix != null
                   ? SizedBox(height: 44, width: 44, child: prefix!)
@@ -50,7 +52,7 @@ class LongTileButton extends StatelessWidget {
                       width: 8,
                     )
                   : SizedBox(),
-              child,
+              Flexible(child: child),
               suffix != null
                   ? SizedBox(
                       width: 8,
